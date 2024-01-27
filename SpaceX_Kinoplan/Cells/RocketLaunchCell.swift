@@ -13,7 +13,6 @@ class RocketLaunchCell: UICollectionViewCell, SelfConfiguringCell {
     }
     private lazy var missionNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
         label.backgroundColor = backgroundColor
@@ -22,7 +21,6 @@ class RocketLaunchCell: UICollectionViewCell, SelfConfiguringCell {
     }()
     private lazy var missionPatchImageView: RocketLauncheImageView = {
         let imageView = RocketLauncheImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     private lazy var dateLabel: UILabel = {
@@ -74,13 +72,12 @@ class RocketLaunchCell: UICollectionViewCell, SelfConfiguringCell {
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             missionPatchImageView.heightAnchor.constraint(equalToConstant: frame.width / 2),
             missionPatchImageView.widthAnchor.constraint(equalToConstant: frame.width / 2),
-            dateLabel.widthAnchor.constraint(equalToConstant: frame.width - 10)
+            dateLabel.widthAnchor.constraint(equalToConstant: frame.width - 10),
+            missionNameLabel.widthAnchor.constraint(equalToConstant: frame.width - 10)
         ])
         
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
-

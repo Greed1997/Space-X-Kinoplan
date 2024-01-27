@@ -6,65 +6,61 @@
 //
 
 import UIKit
-
+protocol ListOfRocketsLaunchesViewControllerInputProtocol: AnyObject {
+    func reloadCollectionView(rocketLaunches: [RocketLaunch])
+}
+protocol ListOfRocketsLaunchesViewControllerOutputProtocol: AnyObject {
+    init(view: ListOfRocketsLaunchesViewControllerInputProtocol, router: RouterProtocol)
+    func viewDidLoad()
+    func dataFetched(rocketLaunches: [RocketLaunch])
+    func getSelectedRocketLaunch(index: Int)
+}
 class ListOfRocketsLaunchesViewController: UIViewController {
-    let networkService = NetworkService()
     enum Section: Int, CaseIterable {
         case rocketLaunchesInfo
     }
-    var testData: [RocketLaunch]? = nil
+    var presenter: ListOfRocketsLaunchesViewControllerOutputProtocol!
     private var collectionView: UICollectionView! = nil
     private var dataSource: UICollectionViewDiffableDataSource<Section, RocketLaunch>?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
         setupCollectionView()
         createDataSource()
-        
-        networkService.fetchData(from: "https://api.spacexdata.com/v3/launches") { result in
-            switch result {
-            case .success(let rocketLaunches):
-                self.testData = rocketLaunches
-                self.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        presenter.viewDidLoad()
     }
 
 
 }
 // MARK: - Setup collection view
 private extension ListOfRocketsLaunchesViewController {
-    func setupCollectionView() {
+    private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        collectionView.backgroundColor =
         view.addSubview(collectionView)
         collectionView.register(RocketLaunchCell.self, forCellWithReuseIdentifier: RocketLaunchCell.reuseID)
+        collectionView.delegate = self
         
     }
 }
 // MARK: - Create compositional layout
 private extension ListOfRocketsLaunchesViewController {
-    func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             guard let section = Section(rawValue: sectionIndex) else {
                 fatalError("Unknown section kind")
             }
             switch section {
             case .rocketLaunchesInfo:
-
                 return self.createRocketLaunches()
             }
         }
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.scrollDirection = .horizontal
-//        config.contentInsetsReference = .none
         layout.configuration = config
         return layout
     }
-    func createRocketLaunches() -> NSCollectionLayoutSection {
+    private func createRocketLaunches() -> NSCollectionLayoutSection {
         let width = UIScreen.main.bounds.width
         let inset = (width - (2 * (width * 0.4))) / 3
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
@@ -83,27 +79,30 @@ private extension ListOfRocketsLaunchesViewController {
 }
 // MARK: - Create data source
 private extension ListOfRocketsLaunchesViewController {
-    func createDataSource() {
+    private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, RocketLaunch>(collectionView: collectionView, cellProvider: { collectionView, indexPath, rocketLaunch in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError("Unknow section kind")
             }
             switch section {
             case .rocketLaunchesInfo:
-                let cell = self.configure(collectionView: collectionView, cellType: RocketLaunchCell.self, with: rocketLaunch, for: indexPath)
-                cell.networkService = self.networkService
-                return cell
+                return self.configure(collectionView: collectionView, cellType: RocketLaunchCell.self, with: rocketLaunch, for: indexPath)
             }
         })
     }
 }
-// MARK: - Reload data
-private extension ListOfRocketsLaunchesViewController {
-    func reloadData() {
+// MARK: - ListOfRocketsLaunchesPresenterInput
+extension ListOfRocketsLaunchesViewController: ListOfRocketsLaunchesViewControllerInputProtocol {
+    internal func reloadCollectionView(rocketLaunches: [RocketLaunch]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, RocketLaunch>()
         snapshot.appendSections([.rocketLaunchesInfo])
-        snapshot.appendItems(testData!, toSection: .rocketLaunchesInfo)
+        snapshot.appendItems(rocketLaunches, toSection: .rocketLaunchesInfo)
         dataSource?.apply(snapshot, animatingDifferences: true)
-        
+    }
+}
+// MARK: - UICollectionViewDelegate
+extension ListOfRocketsLaunchesViewController: UICollectionViewDelegate {
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.getSelectedRocketLaunch(index: indexPath.item)
     }
 }

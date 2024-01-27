@@ -9,21 +9,51 @@
 /* Begin PBXBuildFile section */
 		84E0ECF72B627A8A00D53D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ECF62B627A8A00D53D62 /* AppDelegate.swift */; };
 		84E0ECF92B627A8A00D53D62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ECF82B627A8A00D53D62 /* SceneDelegate.swift */; };
-		84E0ECFB2B627A8A00D53D62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ECFA2B627A8A00D53D62 /* ViewController.swift */; };
-		84E0ECFE2B627A8A00D53D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E0ECFC2B627A8A00D53D62 /* Main.storyboard */; };
 		84E0ED002B627A8D00D53D62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E0ECFF2B627A8D00D53D62 /* Assets.xcassets */; };
 		84E0ED032B627A8D00D53D62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E0ED012B627A8D00D53D62 /* LaunchScreen.storyboard */; };
+		84E0ED0B2B627AF700D53D62 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED0A2B627AF700D53D62 /* Router.swift */; };
+		84E0ED0D2B627B0B00D53D62 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED0C2B627B0B00D53D62 /* AssemblyBuilder.swift */; };
+		84E0ED0F2B627B2100D53D62 /* RocketLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED0E2B627B2100D53D62 /* RocketLaunch.swift */; };
+		84E0ED112B627B3700D53D62 /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED102B627B3700D53D62 /* SelfConfiguringCell.swift */; };
+		84E0ED132B627B4E00D53D62 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED122B627B4E00D53D62 /* NetworkService.swift */; };
+		84E0ED152B627B6D00D53D62 /* RocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED142B627B6D00D53D62 /* RocketError.swift */; };
+		84E0ED172B627B7A00D53D62 /* RocketLaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED162B627B7A00D53D62 /* RocketLaunchCell.swift */; };
+		84E0ED192B627B8E00D53D62 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED182B627B8E00D53D62 /* UIViewController + Extension.swift */; };
+		84E0ED1B2B627BAC00D53D62 /* RocketLaunchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED1A2B627BAC00D53D62 /* RocketLaunchInfoViewController.swift */; };
+		84E0ED1D2B627BC600D53D62 /* ListOfFlickerImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED1C2B627BC600D53D62 /* ListOfFlickerImagesViewController.swift */; };
+		84E0ED1F2B627BFA00D53D62 /* ListOfRocketLaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED1E2B627BFA00D53D62 /* ListOfRocketLaunchesViewController.swift */; };
+		84E0ED212B63639A00D53D62 /* RocketLauncheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED202B63639A00D53D62 /* RocketLauncheImageView.swift */; };
+		84E0ED2B2B639EEA00D53D62 /* ListOfRocketsLaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED2A2B639EEA00D53D62 /* ListOfRocketsLaunchesPresenter.swift */; };
+		84E0ED2D2B639EF700D53D62 /* ListOfRocketsLaunchesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED2C2B639EF700D53D62 /* ListOfRocketsLaunchesInteractor.swift */; };
+		84E0ED322B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED312B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift */; };
+		84E0ED3D2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED3C2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift */; };
+		84E0ED3F2B65151600D53D62 /* FlickerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED3E2B65151600D53D62 /* FlickerImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84E0ECF32B627A8A00D53D62 /* SpaceX_Kinoplan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX_Kinoplan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E0ECF62B627A8A00D53D62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E0ECF82B627A8A00D53D62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84E0ECFA2B627A8A00D53D62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84E0ECFD2B627A8A00D53D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E0ECFF2B627A8D00D53D62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E0ED022B627A8D00D53D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E0ED042B627A8D00D53D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E0ED0A2B627AF700D53D62 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		84E0ED0C2B627B0B00D53D62 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		84E0ED0E2B627B2100D53D62 /* RocketLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunch.swift; sourceTree = "<group>"; };
+		84E0ED102B627B3700D53D62 /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
+		84E0ED122B627B4E00D53D62 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		84E0ED142B627B6D00D53D62 /* RocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketError.swift; sourceTree = "<group>"; };
+		84E0ED162B627B7A00D53D62 /* RocketLaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchCell.swift; sourceTree = "<group>"; };
+		84E0ED182B627B8E00D53D62 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		84E0ED1A2B627BAC00D53D62 /* RocketLaunchInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchInfoViewController.swift; sourceTree = "<group>"; };
+		84E0ED1C2B627BC600D53D62 /* ListOfFlickerImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlickerImagesViewController.swift; sourceTree = "<group>"; };
+		84E0ED1E2B627BFA00D53D62 /* ListOfRocketLaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRocketLaunchesViewController.swift; sourceTree = "<group>"; };
+		84E0ED202B63639A00D53D62 /* RocketLauncheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLauncheImageView.swift; sourceTree = "<group>"; };
+		84E0ED2A2B639EEA00D53D62 /* ListOfRocketsLaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRocketsLaunchesPresenter.swift; sourceTree = "<group>"; };
+		84E0ED2C2B639EF700D53D62 /* ListOfRocketsLaunchesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRocketsLaunchesInteractor.swift; sourceTree = "<group>"; };
+		84E0ED312B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchInfoPresenter.swift; sourceTree = "<group>"; };
+		84E0ED3C2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlickerImagesPresenter.swift; sourceTree = "<group>"; };
+		84E0ED3E2B65151600D53D62 /* FlickerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +86,158 @@
 		84E0ECF52B627A8A00D53D62 /* SpaceX_Kinoplan */ = {
 			isa = PBXGroup;
 			children = (
-				84E0ECF62B627A8A00D53D62 /* AppDelegate.swift */,
-				84E0ECF82B627A8A00D53D62 /* SceneDelegate.swift */,
-				84E0ECFA2B627A8A00D53D62 /* ViewController.swift */,
-				84E0ECFC2B627A8A00D53D62 /* Main.storyboard */,
-				84E0ECFF2B627A8D00D53D62 /* Assets.xcassets */,
-				84E0ED012B627A8D00D53D62 /* LaunchScreen.storyboard */,
-				84E0ED042B627A8D00D53D62 /* Info.plist */,
+				84E0ED0A2B627AF700D53D62 /* Router.swift */,
+				84E0ED0C2B627B0B00D53D62 /* AssemblyBuilder.swift */,
+				84E0ED0E2B627B2100D53D62 /* RocketLaunch.swift */,
+				84E0ED102B627B3700D53D62 /* SelfConfiguringCell.swift */,
+				84E0ED202B63639A00D53D62 /* RocketLauncheImageView.swift */,
+				84E0ED3A2B63EE1400D53D62 /* ListOfFlickerImages */,
+				84E0ED352B63ED1C00D53D62 /* Services */,
+				84E0ED142B627B6D00D53D62 /* RocketError.swift */,
+				84E0ED342B63ED1300D53D62 /* Cells */,
+				84E0ED332B63ED0900D53D62 /* Extensions */,
+				84E0ED2E2B63CAD800D53D62 /* RocketLaunchInfo */,
+				84E0ED272B639ECB00D53D62 /* ListOfRocketsLaunches */,
+				84E0ED382B63ED6B00D53D62 /* Storyboards */,
+				84E0ED372B63ED6200D53D62 /* Source */,
+				84E0ED362B63ED4000D53D62 /* App */,
 			);
 			path = SpaceX_Kinoplan;
+			sourceTree = "<group>";
+		};
+		84E0ED262B639EC300D53D62 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED1E2B627BFA00D53D62 /* ListOfRocketLaunchesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84E0ED272B639ECB00D53D62 /* ListOfRocketsLaunches */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED292B639EDB00D53D62 /* Interactor */,
+				84E0ED282B639ED500D53D62 /* Presenter */,
+				84E0ED262B639EC300D53D62 /* ViewController */,
+			);
+			path = ListOfRocketsLaunches;
+			sourceTree = "<group>";
+		};
+		84E0ED282B639ED500D53D62 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED2A2B639EEA00D53D62 /* ListOfRocketsLaunchesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84E0ED292B639EDB00D53D62 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED2C2B639EF700D53D62 /* ListOfRocketsLaunchesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		84E0ED2E2B63CAD800D53D62 /* RocketLaunchInfo */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED302B63CAEE00D53D62 /* Presenter */,
+				84E0ED2F2B63CAE700D53D62 /* ViewController */,
+			);
+			path = RocketLaunchInfo;
+			sourceTree = "<group>";
+		};
+		84E0ED2F2B63CAE700D53D62 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED1A2B627BAC00D53D62 /* RocketLaunchInfoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84E0ED302B63CAEE00D53D62 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED312B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84E0ED332B63ED0900D53D62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED182B627B8E00D53D62 /* UIViewController + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84E0ED342B63ED1300D53D62 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED162B627B7A00D53D62 /* RocketLaunchCell.swift */,
+				84E0ED3E2B65151600D53D62 /* FlickerImageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		84E0ED352B63ED1C00D53D62 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED122B627B4E00D53D62 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		84E0ED362B63ED4000D53D62 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ECF62B627A8A00D53D62 /* AppDelegate.swift */,
+				84E0ECF82B627A8A00D53D62 /* SceneDelegate.swift */,
+				84E0ED042B627A8D00D53D62 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		84E0ED372B63ED6200D53D62 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ECFF2B627A8D00D53D62 /* Assets.xcassets */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		84E0ED382B63ED6B00D53D62 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED012B627A8D00D53D62 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		84E0ED392B63EE0A00D53D62 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED1C2B627BC600D53D62 /* ListOfFlickerImagesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84E0ED3A2B63EE1400D53D62 /* ListOfFlickerImages */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED3B2B63EE2F00D53D62 /* Presenter */,
+				84E0ED392B63EE0A00D53D62 /* ViewController */,
+			);
+			path = ListOfFlickerImages;
+			sourceTree = "<group>";
+		};
+		84E0ED3B2B63EE2F00D53D62 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84E0ED3C2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +300,6 @@
 			files = (
 				84E0ED032B627A8D00D53D62 /* LaunchScreen.storyboard in Resources */,
 				84E0ED002B627A8D00D53D62 /* Assets.xcassets in Resources */,
-				84E0ECFE2B627A8A00D53D62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +310,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E0ECFB2B627A8A00D53D62 /* ViewController.swift in Sources */,
+				84E0ED192B627B8E00D53D62 /* UIViewController + Extension.swift in Sources */,
+				84E0ED172B627B7A00D53D62 /* RocketLaunchCell.swift in Sources */,
+				84E0ED112B627B3700D53D62 /* SelfConfiguringCell.swift in Sources */,
+				84E0ED0F2B627B2100D53D62 /* RocketLaunch.swift in Sources */,
+				84E0ED3D2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift in Sources */,
+				84E0ED1D2B627BC600D53D62 /* ListOfFlickerImagesViewController.swift in Sources */,
+				84E0ED2B2B639EEA00D53D62 /* ListOfRocketsLaunchesPresenter.swift in Sources */,
+				84E0ED132B627B4E00D53D62 /* NetworkService.swift in Sources */,
+				84E0ED1B2B627BAC00D53D62 /* RocketLaunchInfoViewController.swift in Sources */,
+				84E0ED322B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift in Sources */,
+				84E0ED1F2B627BFA00D53D62 /* ListOfRocketLaunchesViewController.swift in Sources */,
+				84E0ED0B2B627AF700D53D62 /* Router.swift in Sources */,
+				84E0ED2D2B639EF700D53D62 /* ListOfRocketsLaunchesInteractor.swift in Sources */,
+				84E0ED0D2B627B0B00D53D62 /* AssemblyBuilder.swift in Sources */,
 				84E0ECF72B627A8A00D53D62 /* AppDelegate.swift in Sources */,
+				84E0ED3F2B65151600D53D62 /* FlickerImageCell.swift in Sources */,
+				84E0ED212B63639A00D53D62 /* RocketLauncheImageView.swift in Sources */,
 				84E0ECF92B627A8A00D53D62 /* SceneDelegate.swift in Sources */,
+				84E0ED152B627B6D00D53D62 /* RocketError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84E0ECFC2B627A8A00D53D62 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84E0ECFD2B627A8A00D53D62 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		84E0ED012B627A8D00D53D62 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,10 +474,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7AFA87CCA7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SpaceX_Kinoplan/Info.plist;
+				INFOPLIST_FILE = SpaceX_Kinoplan/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,10 +501,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7AFA87CCA7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SpaceX_Kinoplan/Info.plist;
+				INFOPLIST_FILE = SpaceX_Kinoplan/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
