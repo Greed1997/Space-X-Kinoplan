@@ -75,8 +75,6 @@ class RocketLaunchInfoViewController: UIViewController {
         view.backgroundColor = .white
         presenter.viewDidLoad()
         setupStackView()
-//        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
-//        navigationItem.leftBarButtonItem = backButton
     }
     @objc
     private func openYoutubeVideo() {

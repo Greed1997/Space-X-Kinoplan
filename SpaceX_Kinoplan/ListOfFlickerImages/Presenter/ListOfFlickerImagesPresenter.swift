@@ -32,6 +32,4 @@ class ListOfFlickerImagesPresenter: ListOfFlickerImagesPresenterProtocol {
         self.router = router
         self.rocketLaunch = rocketLaunch
     }
-    
-    
 }

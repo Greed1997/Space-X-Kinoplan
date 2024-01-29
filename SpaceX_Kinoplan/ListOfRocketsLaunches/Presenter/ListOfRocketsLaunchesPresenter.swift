@@ -8,8 +8,6 @@
 import Foundation
 
 class ListOfRocketsLaunchesPresenter: ListOfRocketsLaunchesViewControllerOutputProtocol {
-    
-    
     weak var view: ListOfRocketsLaunchesViewControllerInputProtocol!
     var interactor: ListOfRocketsLaunchesInteractorInputProtocol!
     var router: RouterProtocol?
@@ -17,10 +15,8 @@ class ListOfRocketsLaunchesPresenter: ListOfRocketsLaunchesViewControllerOutputP
         self.view = view
         self.router = router
     }
-
 }
 extension ListOfRocketsLaunchesPresenter: ListOfRocketsLaunchesInteractorOutputProtocol {
-    
     func viewDidLoad() {
         interactor?.fetchData()
     }
@@ -33,5 +29,4 @@ extension ListOfRocketsLaunchesPresenter: ListOfRocketsLaunchesInteractorOutputP
     func goToRocketLaunchVC(rocketLaunch: RocketLaunch) {
         router?.goToRocketLaunchInfoVC(rocketLaunch: rocketLaunch)
     }
-    
 }

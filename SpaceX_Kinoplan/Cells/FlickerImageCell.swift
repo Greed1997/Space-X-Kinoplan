@@ -14,7 +14,6 @@ class FlickerImageCell: UICollectionViewCell, SelfConfiguringCell, UIScrollViewD
     private lazy var imageView: RocketLauncheImageView = {
         let imageView = RocketLauncheImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     private lazy var scrollView: UIScrollView = {

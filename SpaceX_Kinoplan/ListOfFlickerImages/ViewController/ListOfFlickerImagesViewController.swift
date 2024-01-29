@@ -20,7 +20,6 @@ class ListOfFlickerImagesViewController: UIViewController {
         createDataSource()
         presenter.viewDidLoad()
     }
-    
 }
 // MARK: - Setup collection view
 private extension ListOfFlickerImagesViewController {
