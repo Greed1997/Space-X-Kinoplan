@@ -22,7 +22,6 @@ class RocketLauncheImageView: UIImageView {
         networkService.fetchImage(from: url) { [weak self] data, response in
             guard let self = self else { return }
             self.image = UIImage(data: data)
-            
             self.cacheStorage.saveDataToCache(with: data, and: response)
         }
     }

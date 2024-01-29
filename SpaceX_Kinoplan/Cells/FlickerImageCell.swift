@@ -20,7 +20,7 @@ class FlickerImageCell: UICollectionViewCell, SelfConfiguringCell, UIScrollViewD
         let scrollView = UIScrollView(frame: bounds)
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 6.0
+        scrollView.maximumZoomScale = 4.0
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
