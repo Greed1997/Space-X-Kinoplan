@@ -107,7 +107,7 @@ class RocketLaunchInfoViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = CGFloat(20)
+        stackView.spacing = CGFloat(view.frame.height / 20)
         stackView.addArrangedSubview(missionNameLabel)
         stackView.addArrangedSubview(missionPatchImageView)
         stackView.addArrangedSubview(dateLabel)
@@ -121,25 +121,26 @@ class RocketLaunchInfoViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, constant: -20),
+            stackView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, constant: -20),
+            
+            
             missionPatchImageView.heightAnchor.constraint(equalToConstant: view.frame.height / 7),
             missionPatchImageView.widthAnchor.constraint(equalToConstant: view.frame.height / 7),
-            missionNameLabel.widthAnchor.constraint(equalToConstant: 0.8 * view.frame.width)
+            
+            missionNameLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8)
         ])
     }
 }
 
 // MARK: - RocketLaunchInfoViewProtocol
 extension RocketLaunchInfoViewController: RocketLaunchInfoViewProtocol {
-    func viewDidLoadPresenter(rocketLaunch: RocketLaunch) {
-        missionNameLabel.text = "Mission name: \(String(describing: rocketLaunch.missionName!))"
-        dateLabel.text = "Date: \(String(describing: rocketLaunch.launchDateLocal!))"
-        
-        if let missionPatch = rocketLaunch.links?.missionPatch {
-            self.missionPatchImageView.fetchImage(from: missionPatch)
-        }
+    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage) {
+        missionNameLabel.text = missionNameText
+        dateLabel.text = dateText
+        missionPatchImageView.image = image
         updateButtonAvailability(for: rocketLaunch)
     }
-    
     func updateButtonAvailability(for rocketLaunch: RocketLaunch) {
         youtubeVideoLinkButton.isHidden = rocketLaunch.links?.youtubeId == nil
         wikipediaLinkButton.isHidden = rocketLaunch.links?.wikipedia == nil

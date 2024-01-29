@@ -28,8 +28,6 @@ class ListOfRocketsLaunchesViewController: UIViewController {
         createDataSource()
         presenter.viewDidLoad()
     }
-
-
 }
 // MARK: - Setup collection view
 private extension ListOfRocketsLaunchesViewController {
@@ -97,7 +95,7 @@ extension ListOfRocketsLaunchesViewController: ListOfRocketsLaunchesViewControll
         var snapshot = NSDiffableDataSourceSnapshot<Section, RocketLaunch>()
         snapshot.appendSections([.rocketLaunchesInfo])
         snapshot.appendItems(rocketLaunches, toSection: .rocketLaunchesInfo)
-        dataSource?.apply(snapshot, animatingDifferences: true)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
 }
 // MARK: - UICollectionViewDelegate

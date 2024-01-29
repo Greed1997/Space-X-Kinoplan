@@ -8,11 +8,11 @@
 import UIKit
 
 protocol RocketLaunchInfoViewProtocol: AnyObject {
-    func viewDidLoadPresenter(rocketLaunch: RocketLaunch)
+    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage)
     func updateButtonAvailability(for rocketLaunch: RocketLaunch)
 }
 protocol RocketLaunchInfoPresenterProtocol: AnyObject {
-    init(view: RocketLaunchInfoViewProtocol, router: RouterProtocol, rocketLaunch: RocketLaunch)
+    init(view: RocketLaunchInfoViewProtocol, router: RouterProtocol, rocketLaunch: RocketLaunch, cacheStorage: CacheStorageProtocol, networkService: NetworkServiceProtocol)
     func viewDidLoad()
     func goToWatchingYoutubeVideo()
     func goToWikipedia()
@@ -23,15 +23,33 @@ protocol RocketLaunchInfoPresenterProtocol: AnyObject {
 class RocketLaunchInfoPresenter: RocketLaunchInfoPresenterProtocol {
     
     let rocketLaunch: RocketLaunch!
+    let cacheStorage: CacheStorageProtocol!
+    let networkService: NetworkServiceProtocol!
+    var image: UIImage!
     var router: RouterProtocol?
     weak var view: RocketLaunchInfoViewProtocol?
-    required init(view: RocketLaunchInfoViewProtocol, router: RouterProtocol, rocketLaunch: RocketLaunch) {
+    required init(view: RocketLaunchInfoViewProtocol, router: RouterProtocol, rocketLaunch: RocketLaunch, cacheStorage: CacheStorageProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
         self.router = router
         self.rocketLaunch = rocketLaunch
+        self.cacheStorage = cacheStorage
+        self.networkService = networkService
     }
     func viewDidLoad() {
-        view?.viewDidLoadPresenter(rocketLaunch: rocketLaunch)
+        let missionName = "Mission name: \(String(describing: rocketLaunch.missionName!))"
+        let date = "Date: \(String(describing: rocketLaunch.launchDateLocal!))"
+        guard let urlString = rocketLaunch.links?.missionPatch else { return }
+        guard let url = URL(string: urlString) else { return }
+        if let cachedImage = cacheStorage.getCachedImage(from: url) {
+            view?.viewDidLoadFromPresenter(rocketLaunch: rocketLaunch, missionNameText: missionName, dateText: date, image: cachedImage)
+        } else {
+            networkService.fetchImage(from: url) { [weak self] data, response in
+                guard let self = self else { return }
+                cacheStorage.saveDataToCache(with: data, and: response)
+                self.image = UIImage(data: data)
+                view?.viewDidLoadFromPresenter(rocketLaunch: rocketLaunch, missionNameText: missionName, dateText: date, image: self.image)
+            }
+        }
     }
     func goToFlickrImages() {
         router?.goToListOfFlickerImagesVC(rocketLaunch: rocketLaunch)

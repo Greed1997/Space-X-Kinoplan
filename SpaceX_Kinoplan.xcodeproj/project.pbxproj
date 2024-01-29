@@ -28,6 +28,7 @@
 		84E0ED322B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED312B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift */; };
 		84E0ED3D2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED3C2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift */; };
 		84E0ED3F2B65151600D53D62 /* FlickerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED3E2B65151600D53D62 /* FlickerImageCell.swift */; };
+		84E0ED432B66116C00D53D62 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0ED422B66116C00D53D62 /* CacheStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		84E0ED312B63CAFC00D53D62 /* RocketLaunchInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchInfoPresenter.swift; sourceTree = "<group>"; };
 		84E0ED3C2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlickerImagesPresenter.swift; sourceTree = "<group>"; };
 		84E0ED3E2B65151600D53D62 /* FlickerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerImageCell.swift; sourceTree = "<group>"; };
+		84E0ED422B66116C00D53D62 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,21 +88,21 @@
 		84E0ECF52B627A8A00D53D62 /* SpaceX_Kinoplan */ = {
 			isa = PBXGroup;
 			children = (
+				84E0ED272B639ECB00D53D62 /* ListOfRocketsLaunches */,
+				84E0ED2E2B63CAD800D53D62 /* RocketLaunchInfo */,
+				84E0ED3A2B63EE1400D53D62 /* ListOfFlickerImages */,
+				84E0ED352B63ED1C00D53D62 /* Services */,
+				84E0ED342B63ED1300D53D62 /* Cells */,
+				84E0ED332B63ED0900D53D62 /* Extensions */,
+				84E0ED382B63ED6B00D53D62 /* Storyboards */,
+				84E0ED372B63ED6200D53D62 /* Source */,
+				84E0ED362B63ED4000D53D62 /* App */,
 				84E0ED0A2B627AF700D53D62 /* Router.swift */,
 				84E0ED0C2B627B0B00D53D62 /* AssemblyBuilder.swift */,
 				84E0ED0E2B627B2100D53D62 /* RocketLaunch.swift */,
 				84E0ED102B627B3700D53D62 /* SelfConfiguringCell.swift */,
 				84E0ED202B63639A00D53D62 /* RocketLauncheImageView.swift */,
-				84E0ED3A2B63EE1400D53D62 /* ListOfFlickerImages */,
-				84E0ED352B63ED1C00D53D62 /* Services */,
 				84E0ED142B627B6D00D53D62 /* RocketError.swift */,
-				84E0ED342B63ED1300D53D62 /* Cells */,
-				84E0ED332B63ED0900D53D62 /* Extensions */,
-				84E0ED2E2B63CAD800D53D62 /* RocketLaunchInfo */,
-				84E0ED272B639ECB00D53D62 /* ListOfRocketsLaunches */,
-				84E0ED382B63ED6B00D53D62 /* Storyboards */,
-				84E0ED372B63ED6200D53D62 /* Source */,
-				84E0ED362B63ED4000D53D62 /* App */,
 			);
 			path = SpaceX_Kinoplan;
 			sourceTree = "<group>";
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				84E0ED122B627B4E00D53D62 /* NetworkService.swift */,
+				84E0ED422B66116C00D53D62 /* CacheStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				84E0ED192B627B8E00D53D62 /* UIViewController + Extension.swift in Sources */,
 				84E0ED172B627B7A00D53D62 /* RocketLaunchCell.swift in Sources */,
+				84E0ED432B66116C00D53D62 /* CacheStorage.swift in Sources */,
 				84E0ED112B627B3700D53D62 /* SelfConfiguringCell.swift in Sources */,
 				84E0ED0F2B627B2100D53D62 /* RocketLaunch.swift in Sources */,
 				84E0ED3D2B63EE3F00D53D62 /* ListOfFlickerImagesPresenter.swift in Sources */,
@@ -477,8 +481,8 @@
 				INFOPLIST_FILE = SpaceX_Kinoplan/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,8 +508,8 @@
 				INFOPLIST_FILE = SpaceX_Kinoplan/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

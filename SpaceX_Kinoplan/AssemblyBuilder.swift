@@ -25,8 +25,10 @@ final class AssemblyBuilder: AssemblyBuilderProtocol {
     }
     
     func createRocketLaunchInfoViewController(router: RouterProtocol, rocketLaunch: RocketLaunch) -> UIViewController {
+        let networkSevice = NetworkService()
+        let cacheStorage = CacheStorage()
         let viewController = RocketLaunchInfoViewController()
-        let presenter = RocketLaunchInfoPresenter(view: viewController, router: router, rocketLaunch: rocketLaunch)
+        let presenter = RocketLaunchInfoPresenter(view: viewController, router: router, rocketLaunch: rocketLaunch, cacheStorage: cacheStorage, networkService: networkSevice)
         viewController.presenter = presenter
         return viewController
     }
