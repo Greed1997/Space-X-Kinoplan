@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RocketLaunchInfoViewProtocol: AnyObject {
-    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage)
+    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage?)
     func updateButtonAvailability(for rocketLaunch: RocketLaunch)
 }
 protocol RocketLaunchInfoPresenterProtocol: AnyObject {
@@ -25,7 +25,7 @@ class RocketLaunchInfoPresenter: RocketLaunchInfoPresenterProtocol {
     let rocketLaunch: RocketLaunch!
     let cacheStorage: CacheStorageProtocol!
     let networkService: NetworkServiceProtocol!
-    var image: UIImage!
+    var image: UIImage?
     var router: RouterProtocol?
     weak var view: RocketLaunchInfoViewProtocol?
     required init(view: RocketLaunchInfoViewProtocol, router: RouterProtocol, rocketLaunch: RocketLaunch, cacheStorage: CacheStorageProtocol, networkService: NetworkServiceProtocol) {
@@ -38,7 +38,13 @@ class RocketLaunchInfoPresenter: RocketLaunchInfoPresenterProtocol {
     func viewDidLoad() {
         let missionName = "Mission name: \(String(describing: rocketLaunch.missionName!))"
         let date = "Date: \(String(describing: rocketLaunch.launchDateLocal!))"
-        guard let urlString = rocketLaunch.links?.missionPatch else { return }
+        guard let urlString = rocketLaunch.links?.missionPatch else { 
+            view?.viewDidLoadFromPresenter(rocketLaunch: self.rocketLaunch,
+                                                missionNameText: missionName,
+                                                dateText: date,
+                                                image: nil)
+            return
+        }
         guard let url = URL(string: urlString) else { return }
         if let cachedImage = cacheStorage.getCachedImage(from: url) {
             view?.viewDidLoadFromPresenter(rocketLaunch: rocketLaunch, missionNameText: missionName, dateText: date, image: cachedImage)
@@ -47,12 +53,14 @@ class RocketLaunchInfoPresenter: RocketLaunchInfoPresenterProtocol {
                 guard let self = self else { return }
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.cacheStorage.saveDataToCache(with: data, and: response)
-                    self.image = UIImage(data: data)
-                    self.view?.viewDidLoadFromPresenter(rocketLaunch: self.rocketLaunch,
-                                                   missionNameText: missionName,
-                                                   dateText: date,
-                                                   image: self.image)
+                    if let image = UIImage(data: data) {
+                        self.image = image
+                        self.cacheStorage.saveDataToCache(with: data, and: response)
+                        self.view?.viewDidLoadFromPresenter(rocketLaunch: self.rocketLaunch,
+                                                            missionNameText: missionName,
+                                                            dateText: date,
+                                                            image: self.image)
+                    }
                 }
             }
         }

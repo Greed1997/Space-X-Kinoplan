@@ -133,7 +133,7 @@ class RocketLaunchInfoViewController: UIViewController {
 
 // MARK: - RocketLaunchInfoViewProtocol
 extension RocketLaunchInfoViewController: RocketLaunchInfoViewProtocol {
-    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage) {
+    func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage?) {
         updateButtonAvailability(for: rocketLaunch)
         missionNameLabel.text = missionNameText
         dateLabel.text = dateText
