@@ -45,9 +45,15 @@ class RocketLaunchInfoPresenter: RocketLaunchInfoPresenterProtocol {
         } else {
             networkService.fetchImage(from: url) { [weak self] data, response in
                 guard let self = self else { return }
-                cacheStorage.saveDataToCache(with: data, and: response)
-                self.image = UIImage(data: data)
-                view?.viewDidLoadFromPresenter(rocketLaunch: rocketLaunch, missionNameText: missionName, dateText: date, image: self.image)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.cacheStorage.saveDataToCache(with: data, and: response)
+                    self.image = UIImage(data: data)
+                    self.view?.viewDidLoadFromPresenter(rocketLaunch: self.rocketLaunch,
+                                                   missionNameText: missionName,
+                                                   dateText: date,
+                                                   image: self.image)
+                }
             }
         }
     }

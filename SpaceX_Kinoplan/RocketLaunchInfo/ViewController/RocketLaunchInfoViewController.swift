@@ -134,16 +134,26 @@ class RocketLaunchInfoViewController: UIViewController {
 // MARK: - RocketLaunchInfoViewProtocol
 extension RocketLaunchInfoViewController: RocketLaunchInfoViewProtocol {
     func viewDidLoadFromPresenter(rocketLaunch: RocketLaunch, missionNameText: String, dateText: String, image: UIImage) {
+        updateButtonAvailability(for: rocketLaunch)
         missionNameLabel.text = missionNameText
         dateLabel.text = dateText
         missionPatchImageView.image = image
-        updateButtonAvailability(for: rocketLaunch)
     }
     func updateButtonAvailability(for rocketLaunch: RocketLaunch) {
         youtubeVideoLinkButton.isHidden = rocketLaunch.links?.youtubeId == nil
         wikipediaLinkButton.isHidden = rocketLaunch.links?.wikipedia == nil
         redditLinkButton.isHidden = rocketLaunch.links?.redditLaunch == nil
         articleLinkButton.isHidden = rocketLaunch.links?.articleLink == nil
-        flickrImagesButton.isHidden = rocketLaunch.links?.flickrImages == []
+        if rocketLaunch.links?.flickrImages == Optional([]) || rocketLaunch.links?.flickrImages == nil {
+            flickrImagesButton.isHidden = true
+        } else {
+            flickrImagesButton.isHidden = false
+        }
+        if rocketLaunch.links?.missionPatch == nil || rocketLaunch.links?.missionPatch == "" {
+            missionPatchImageView.isHidden = true
+        } else {
+            missionPatchImageView.isHidden = false
+        }
+        print(rocketLaunch.links?.missionPatch ?? 1234)
     }
 }

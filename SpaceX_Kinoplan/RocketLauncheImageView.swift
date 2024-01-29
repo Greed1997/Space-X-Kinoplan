@@ -22,8 +22,12 @@ class RocketLauncheImageView: UIImageView {
         networkService.fetchImage(from: url) { [weak self] data, response in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.image = UIImage(data: data)
-                self.cacheStorage.saveDataToCache(with: data, and: response)
+                if let image = UIImage(data: data) {
+                    self.image = UIImage(data: data)
+                    self.cacheStorage.saveDataToCache(with: data, and: response)
+                } else {
+                    self.image = UIImage(named: "Cosmos")
+                }
             }
         }
     }
